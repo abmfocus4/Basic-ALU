@@ -1,0 +1,22 @@
+entity new_mux is port
+
+	(
+	conc_hex : in std_logic_vector(7 downto 0); -- concatenated 8 bit hex_A and hex_B
+	sum: in std_logic_vector(7 downto 0); --8 bit sum from adder
+	pb3 : in std_logic_vector(3 downto 0); --control variable
+
+	mux_out : out std_logic_vector(7 downto 0) --8 bit output
+	);
+
+end entity new_mux;
+
+architecture new_mux of new_mux is
+begin 
+	with pb3(3 downto 0) select
+
+		mux_out <=  conc_hex when "0000",
+					conc_hex when "0001",
+					conc_hex when "0010",
+					sum when "1000";
+
+end new_mux;
