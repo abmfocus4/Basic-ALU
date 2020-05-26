@@ -1,0 +1,1 @@
+io_4iomodule_c5_index: 62gpio_index: 6
