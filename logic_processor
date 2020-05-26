@@ -1,0 +1,23 @@
+entity logic_processor is
+port(
+
+	Hex_A : in std_logic_vector(3 downto 0);
+	Hex_B : in std_logic_vector(3 downto 0);
+	pb : in std_logic_vector(3 downto 0);
+	logic_out : out std_logic_vector(3 downto 0)
+
+	);
+
+end entity logic_processor;
+
+architecture logic_processor of logic_processor is
+begin 
+	with pb(3 downto 0) select
+
+		logic_out <= Hex_A AND Hex_B when "0001",
+					Hex_A OR Hex_B when "0010",
+					Hex_A XOR Hex_B when "0100";
+
+end logic_processor;
+
+
