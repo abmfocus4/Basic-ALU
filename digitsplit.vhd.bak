@@ -1,0 +1,14 @@
+--DIGITSPLIT
+entity digitsplit is port (
+mux_vector	: in std_logic_vector(7 downto 0); 
+tens	: out std_logic_vector(3 downto 0); 
+ones	: out std_logic_vector(3 downto 0)
+); 
+end entity digitsplit; 
+
+architecture digitsplit of digitsplit is 
+begin 
+	tens <= std_logic_vector(unsigned(mux_vector / 10)); 
+	ones <= std_logic_vector(unsigned(mux_vector % 10)); 
+end digitsplit; 
+--DIGITSPLIT
