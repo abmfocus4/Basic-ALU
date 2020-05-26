@@ -1,0 +1,16 @@
+entity adder is
+port(
+		Hex_A : in std_logic_vector(3 downto 0);
+		Hex_B : in std_logic_vector(3 downto 0);
+
+		sum: out std_logic_vector(7 downto 0)
+		);
+
+end adder;
+
+architecture adder of adder is
+begin
+
+	sum (7 downto 0)<= std_logic_vector(unsigned("0000" & Hex_A) + unsigned("0000" & Hex_B));
+
+end adder;
